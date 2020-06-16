@@ -15,7 +15,7 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-    
+
     ll n;
     cin >> n;
     std::vector<ll> arr(n + 1, 0);
@@ -32,7 +32,7 @@ int main()
         if ( arr[abs(arr[i])] >= 0 )
             arr[abs(arr[i])] = -arr[abs(arr[i])];
         else
-            cout << arr[i] << " ";
+            cout << abs(arr[i]) << " ";
     }
 
     return 0;
