@@ -27,7 +27,6 @@ void merge(vector<ll>&arr1, vector<ll>&arr2, ll m, ll n)
             else
                 break;
         }
-
         if (j != m - 2 || last > arr2[i])
         {
             arr1[j + 1] = arr2[i];
