@@ -13,7 +13,8 @@ int maxLen(int arr[], int n)
 	int max_len = 0; // Initialize result
 
 	// Traverse through the given array
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; i++)
+	{
 		// Add current element to sum
 		sum += arr[i];
 
