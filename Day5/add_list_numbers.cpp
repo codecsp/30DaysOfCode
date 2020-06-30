@@ -1,3 +1,27 @@
+// 2. Add Two Numbers
+// Medium
+
+// 8250
+
+// 2110
+
+// Add to List
+
+// Share
+// You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+// You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+// Example:
+
+// Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+// Output: 7 -> 0 -> 8
+// Explanation: 342 + 465 = 807.
+
+//leetcode submission : https://leetcode.com/problems/add-two-numbers/
+
+//reference : nick white youtube video
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -24,20 +48,21 @@ public:
 			int num2 = (l2 != 0) ? l2->val : 0;
 			int sum = num1 + num2 + carry;
 
-			int put = sum / 10;
-			carry = sum % 10;
+			carry = sum / 10;
+			int put = sum % 10;
 
-			ListNode tmp(put);
-			curr->next = &tmp;
+
+			curr->next = new ListNode(put);
 			curr = curr->next;
+
+			if (l1 != NULL)l1 = l1->next;
+			if (l2 != NULL)l2 = l2->next;
 		}
 
 		if (carry)
 		{
-			ListNode tmp(1);
-			curr->next = &tmp;
-			curr = curr->next;
+			curr->next = new ListNode(1);
 		}
-		return ;
+		return myNode.next;
 	}
 };
