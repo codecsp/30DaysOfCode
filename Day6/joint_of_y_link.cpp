@@ -28,6 +28,8 @@ class Solution
 public:
 	ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
 	{
+
+		std::map<key, value> map;
 		int l1 = 0, l2 = 0;
 		ListNode* tmp1 = headA;
 		ListNode*tmp2 = headB;
