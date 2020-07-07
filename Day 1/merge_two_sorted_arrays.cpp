@@ -13,7 +13,6 @@ typedef long long int ll;
 
 void merge(vector<ll>&arr1, vector<ll>&arr2, ll m, ll n)
 {
-
     for (ll i = n - 1; i >= 0; i--)
     {
         ll last = arr1[m - 1];
@@ -33,7 +32,6 @@ void merge(vector<ll>&arr1, vector<ll>&arr2, ll m, ll n)
             arr2[i] = last;
         }
     }
-
 }
 
 int main()
