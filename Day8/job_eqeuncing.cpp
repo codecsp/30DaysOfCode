@@ -1,67 +1,81 @@
-// Program to find the maximum profit job sequence from a given array
-// of jobs with deadlines and profits
-#include<iostream>
-#include<algorithm>
-using namespace std;
+/*
+Maximum Profit in Job Scheduling
 
-// A structure to represent a job
-struct Job
+We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
+
+You're given the startTime , endTime and profit arrays, you need to output the maximum profit you can take such that there are no 2 jobs in the subset with overlapping time range.
+
+If you choose a job that ends at time X you will be able to start another job that starts at time X.
+
+Example:
+
+Input: startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
+Output: 120
+Explanation: The subset chosen is the first and fourth job.
+Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
+*/
+
+/*
+TLE submitted at leetcode : https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+complexity : O(N^2)
+
+*/
+
+typedef int ll;
+class Solution
 {
-	char id;	 // Job Id
-	int dead; // Deadline of job
-	int profit; // Profit if job is over before or on deadline
-};
-
-// This function is used for sorting all jobs according to profit
-bool comparison(Job a, Job b)
-{
-	return (a.profit > b.profit);
-}
-
-// Returns minimum number of platforms reqquired
-void printJobScheduling(Job arr[], int n)
-{
-	// Sort all jobs according to decreasing order of prfit
-	sort(arr, arr + n, comparison);
-
-	int result[n]; // To store result (Sequence of jobs)
-	bool slot[n]; // To keep track of free time slots
-
-	// Initialize all slots to be free
-	for (int i = 0; i < n; i++)
-		slot[i] = false;
-
-	// Iterate through all given jobs
-	for (int i = 0; i < n; i++)
+public:
+	static bool comp(const vector<int> &v1, const vector<int> &v2)
 	{
-		// Find a free slot for this job (Note that we start
-		// from the last possible slot)
-		for (int j = min(n, arr[i].dead) - 1; j >= 0; j--)
-		{
-			// Free slot found
-			if (slot[j] == false)
-			{
-				result[j] = i; // Add this job to result
-				slot[j] = true; // Make this slot occupied
-				break;
-			}
-		}
+		return v1[1] < v2[1];
 	}
 
-	// Print the result
-	for (int i = 0; i < n; i++)
-		if (slot[i])
-			cout << arr[result[i]].id << " ";
-}
+	int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit)
+	{
+		int n = profit.size();
 
-// Driver program to test methods
-int main()
-{
-	Job arr[] = { {'a', 2, 100}, {'b', 1, 19}, {'c', 2, 27},
-		{'d', 1, 25}, {'e', 3, 15}
-	};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	cout << "Following is maximum profit sequence of jobsn";
-	printJobScheduling(arr, n);
-	return 0;
-}
+		vector<vector<int>> jobs(n, vector<int>(3, 0));
+
+		for (int i = 0; i < n; ++i)
+			jobs[i] = {startTime[i], endTime[i], profit[i]};
+
+		sort(jobs.begin(), jobs.end(), comp); // Sort the elements by ending time
+
+		for (int i = 0; i < n; i++)
+		{
+			startTime[i] = jobs[i][0];
+			endTime[i] = jobs[i][1];
+			profit[i] = jobs[i][2];
+		}
+
+		std::vector<int> dp;
+
+		dp = profit;
+		int j = 0;
+		for (ll i = 1; i < n; i++)
+		{
+			j = 0;
+			while (j != i)
+			{
+				if (startTime[i] < endTime[j]) //if coverlaps
+				{
+
+				}
+				else
+				{
+					dp[i] = max(dp[j] + profit[i], dp[i]);
+				}
+				j++;
+			}
+		}
+
+		int ans = 0;
+
+		for (auto num : dp)
+		{
+			ans = max(ans, num);
+		}
+
+		return ans;
+	}
+};
