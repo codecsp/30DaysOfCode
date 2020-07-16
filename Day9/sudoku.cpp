@@ -4,7 +4,8 @@
 class Solution
 {
 public:
-    bool isValidSudoku(vector<vector<char>>& board) {
+    bool isValidSudoku(vector<vector<char>>& board)
+    {
         vector<vector<int>> forRow(9, vector<int>(10));
         vector<vector<int>> forCol(9, vector<int>(10));
         vector<vector<int>> forGrid(9, vector<int>(10));
