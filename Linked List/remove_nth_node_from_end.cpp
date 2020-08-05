@@ -1,7 +1,5 @@
 // Remove Nth Node From End of List
-
 // Given a linked list, remove the n-th node from the end of list and return its head.
-
 // Example:
 
 // Given linked list: 1->2->3->4->5, and n = 2.
@@ -38,7 +36,8 @@ _._ _..._ .-',     _.._(`))
           /,_/      '`-'
 */
 
-class Solution {
+class Solution
+{
 public:
 	ListNode* removeNthFromEnd(ListNode* head, int n)
 	{

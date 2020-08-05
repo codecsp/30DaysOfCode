@@ -33,7 +33,6 @@ void merge(vector<ll>&arr1, vector<ll>&arr2, ll m, ll n)
         }
     }
 }
-
 int main()
 {
 

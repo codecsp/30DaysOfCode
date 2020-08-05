@@ -15,8 +15,10 @@ ll kadanes(vector<ll>&arr)
     for (ll i = 0; i < arr.size(); i++)
     {
         meh = meh + arr[i];
+
         if (meh < arr[i])
             meh = arr[i];
+
         if (msf < meh)
             msf = meh;
     }
@@ -32,6 +34,7 @@ int main()
     ll n ;
     cin >> n;
     vector<ll>arr(n, 0);
+
     for (ll i = 0; i < n; i++)
         cin >> arr[i];
 
