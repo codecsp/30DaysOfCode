@@ -67,7 +67,7 @@ public:
 				tmp = tmp->next;
 			}
 		}
-
+		
 		ListNode* tmp2 = tmp->next->next;
 		tmp->next = tmp2;
 		//delete tmp2;

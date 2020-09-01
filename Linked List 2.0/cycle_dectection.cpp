@@ -11,7 +11,7 @@ then there is no cycle in the linked list.
 
 /*
 
-Approach 1: if one can change the structure of Node then we cac simply add a flag visited to the node.
+Approach 1: if one can change the structure of Node then we can simply add a flag visited to the node.
 This can help us to identify a repeated node, if circle is present.
 
 approach  2: cycle detection using slow and fast pointer

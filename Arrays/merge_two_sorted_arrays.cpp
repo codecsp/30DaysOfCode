@@ -45,13 +45,10 @@ int main()
     std::vector<ll> arr2(m, 0);
 
     for (ll i = 0; i < n; i++)
-    {
         cin >> arr1[i];
-    }
+    
     for (ll i = 0; i < m; i++)
-    {
         cin >> arr2[i];
-    }
 
     merge(arr1, arr2, n, m);
 
@@ -63,6 +60,7 @@ int main()
         cout << num << " ";
     cout << endl;
 
-
+    return 0;
+	
 }
 

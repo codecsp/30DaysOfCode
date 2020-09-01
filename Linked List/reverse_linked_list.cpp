@@ -25,16 +25,16 @@ public:
 	ListNode* reverseList(ListNode* head)
 	{
 
-		ListNode* next = NULL;
-		ListNode* prev = NULL ;
-		ListNode* curr = head;
+		ListNode* next = NULL ; //
+		ListNode* prev = NULL ; //
+		ListNode* curr = head ; //1
 
-		while (curr)
+		while (curr)     //1->2->3->4->NULL
 		{
-			next = curr->next;
-			curr->next = prev;
-			prev = curr;
-			curr = next;
+			next = curr->next; //2
+			curr->next = prev;//2=NULL
+			prev = curr; //1
+			curr = next; //2  
 		}
 
 		return prev;
@@ -67,7 +67,7 @@ public:
 
 		if (!curr)
 			return;
-		if (!curr->next)
+		if (!curr->next) //only one element
 		{
 			head1 = curr;
 			head1->next = prev;
