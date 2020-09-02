@@ -1,12 +1,10 @@
-// C++ program to find all combinations that
-// sum to a given value
+// C++ program to find all combinations that sum to a given value
+
 #include <bits/stdc++.h>
 using namespace std;
 
-// Print all members of ar[] that have given
-void findNumbers(vector<int>& ar, int sum,
-                 vector<vector<int> >& res,
-                 vector<int>& r, int i)
+
+void findNumbers(vector<int>& ar, int sum, vector<vector<int>>& res, vector<int>& r, int i)
 {
 	// If current sum becomes negative
 	if (sum < 0)
