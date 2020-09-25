@@ -7,7 +7,6 @@
 using namespace std;
 typedef long long int ll;
 
-
 int main()
 {
 
@@ -16,15 +15,14 @@ int main()
     freopen("output.txt", "w", stdout);
 #endif
 
-    ll n;
-    cin >> n;
+    ll n ;
+    cin >> n ;
     std::vector<ll> arr(n + 1, 0);
     for (ll i = 1; i <= n; i++)
     {
-        //ll tmp;
         cin >> arr[i];
-        //arr.push_back(tmp);
     }
+    
     // put -i on respective positions if you find it
     // since arr[i] <6
     for (ll i = 1; i <= n; i++)
@@ -34,6 +32,6 @@ int main()
         else
             cout << abs(arr[i]) << " ";
     }
-
+    
     return 0;
 }
